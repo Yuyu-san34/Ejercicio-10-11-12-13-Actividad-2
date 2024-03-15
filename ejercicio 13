@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class CalculoDescuento {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el valor total de la compra:");
+        double valorCompra = scanner.nextDouble();
+        System.out.println("Ingrese el color de la bolita (blanca, verde, amarilla, azul o roja):");
+        String colorBolita = scanner.next().toLowerCase();
+        double cantidadFinal;
+         switch (colorBolita) {
+            case "blanca":
+                cantidadFinal = valorCompra;
+                break;
+            case "verde":
+                cantidadFinal = valorCompra * 0.9; // 10% de descuento
+                break;
+            case "amarilla":
+                cantidadFinal = valorCompra * 0.75; // 25% de descuento
+                break;
+            case "azul":
+                cantidadFinal = valorCompra * 0.5; // 50% de descuento
+                break;
+            case "roja":
+                cantidadFinal = 0; // 100% de descuento
+                break;
+            default:
+                System.out.println("Color de bolita no válido.");
+                return;
+        }
+        System.out.println("El cliente deberá pagar: $" + cantidadFinal);
+
+        scanner.close();
+    }
+}
