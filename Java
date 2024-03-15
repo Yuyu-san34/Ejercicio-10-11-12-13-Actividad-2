@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class CalcularPagoMatricula {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el número de inscripción:");
+        int NI = scanner.nextInt();
+         System.out.println("Ingrese los nombres:");
+        String NOM = scanner.next();
+        System.out.println("Ingrese el patrimonio:");
+        double PAT = scanner.nextDouble();
+        System.out.println("Ingrese el estrato social:");
+        int EST = scanner.nextInt();
+        final double CONSTANTE_MATRICULA = 50000;
+        double PAGMAT = CONSTANTE_MATRICULA;
+        if (PAT > 2000000 && EST > 3) {
+            double incremento = PAT * 0.03;
+            PAGMAT += incremento;
+        }
+        System.out.println("Número de inscripción: " + NI);
+        System.out.println("Nombres: " + NOM);
+        System.out.println("Pago por matrícula: $" + PAGMAT);
+
+        scanner.close();
+    }
+}
+        
