@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class CalculoPagoTrabajador {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el nombre del trabajador:");
+        String nombre = scanner.nextLine();
+        System.out.println("Ingrese el número de horas trabajadas en la semana:");
+        int horasTrabajadas = scanner.nextInt();
+        System.out.println("Ingrese el valor recibido por una hora normal de trabajo:");
+        double valorHoraNormal = scanner.nextDouble();
+        double pagoTotal = 0;
+        if (horasTrabajadas <= 40) {
+            pagoTotal = horasTrabajadas * valorHoraNormal;
+        } else {
+            int horasNormales = 40;
+            int horasExtras = horasTrabajadas - horasNormales;
+            if (horasExtras <= 8) {
+                pagoTotal = horasNormales * valorHoraNormal + horasExtras * valorHoraNormal * 2;
+            } else {
+                int horasExtrasDobles = 8;
+                int horasExtrasTriples = horasExtras - horasExtrasDobles;
+                pagoTotal = horasNormales * valorHoraNormal + horasExtrasDobles * valorHoraNormal * 2 + horasExtrasTriples * valorHoraNormal * 3;
+            }
+        }
+        System.out.println("El trabajador " + nombre + " recibirá un total de: $" + pagoTotal);
+
+        scanner.close();
+    }
+}
